@@ -37,15 +37,35 @@
 # command_list = ["s" , "a" , "d" , "u" , "q"]
 
 # def show_skill():
-#     print("show skill")
+#     cr.execute(f"select * from skills where user_id ='{uid}'")
+#     results = cr.fetchall()
+#     print(f"u have {len(results)} Skills..")
+#     if len(results) > 0:
+    
+#        print("showing skills with progress")
+#     for row in results:
+#         print(f"skill>= {row[0]}")
+#         print(f"progress => {row[1]}%")
     
 #     commit_and_close()
     
 # def add_skill():
 #     sk = input("write skill name ").strip().capitalize()
-#     prog = input("writer skill progress ").strip()
     
-#     cr.execute(f"insert into skills (name , progress , user_id) values('{sk}' , '{prog}' , '{uid}')")
+#     cr.execute(f"select name from skills where name ='{sk}' and user_id = '{uid}'")
+#     results = cr.fetchone()
+    
+#     if results == None:
+        
+#         print(" u can add skill")
+       
+    
+#     else:
+#         print("u cant add this item")
+    
+#     # prog = input("writer skill progress ").strip()
+    
+#     # cr.execute(f"insert into skills (name , progress , user_id) values('{sk}' , '{prog}' , '{uid}')")
     
 #     commit_and_close()
     
@@ -58,10 +78,12 @@
 #     commit_and_close()
     
 # def update_skill():
-#     print("update skill")
+#     sk = input("write skill name ").strip().capitalize()
+#     prog = input("writer the new skill progress ").strip()
+    
+#     cr.execute(f"update skills set progress = '{prog}' where name = '{sk}' and user_id = '{uid}'")
     
 #     commit_and_close()
-    
 
     
 
@@ -82,6 +104,7 @@
 #         update_skill()
 #     else:
 #         print("app is closed")
+#         commit_and_close()
     
     
 # else:
