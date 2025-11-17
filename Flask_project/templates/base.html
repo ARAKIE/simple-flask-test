@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ pagetitle }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
+
+    {% if custom_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/' + custom_css + '.css') }}">
+    {% endif %}
+    <!-- <link rel="icon" href=""> -->
+    </head>
+  <body>
+
+    {% block body %}{% endblock %}
+
+    <!-- صح -->
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+  </body>
+</html>
